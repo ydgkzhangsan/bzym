@@ -15,7 +15,7 @@
     想要返送 PUT 或 DELETE 请求：
       0、必须配置好 HiddentHttpMethodFilter 过滤器
       1、需要发送一个 POST 请求
-      2、需要在 POST 请求中携带一个请求参数 _method 值是 PUT 或 DELETE
+      2、需要在 POST 请求中携带一个请求参数 _method 值是 PUT 或 DELETE 。。
   --%>
   Delete 请求: <form method="post" action="/testRest">
     <input type="hidden" name="_method" value="DELETE" />
@@ -24,7 +24,7 @@
   <hr>
   Put 请求：<form method="post" action="/testRest">
     <input type="hidden" name="_method" value="PUT" />
-    <input type="submit" value="Test Put">
+    <input type="submit"  value="Test Put">
   </form>
   <hr>
   POST 请求：<br>
