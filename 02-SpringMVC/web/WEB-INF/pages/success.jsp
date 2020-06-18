@@ -12,5 +12,8 @@
 </head>
 <body>
     <h3>Success Page</h3>
+    RequestScopeSchool: ${requestScope.school}
+    <br>
+    SessionScopeSchool: ${sessionScope.school}
 </body>
 </html>

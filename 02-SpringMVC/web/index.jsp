@@ -12,12 +12,20 @@
   </head>
   <body>
 
+  <a href="/testModel">Test Model</a>
+  <br>
+  <a href="/testMap">Test Map</a>
+  <br>
+  <a href="/testModelAndView">Test ModelAndView</a>
+  <br>
+  <a href="/testServletApi">Test ServeltAPI</a>
+  <br>
   <form action="testPojo" method="post">
-      Name : <input type="text" name="name" > <br>
-      Gender : <input type="text" name="gender" > <br>
-      Email : <input type="text" name="email" > <br>
-      City : <input type="text" name="address.city" > <br>
-      <input type="submit" value="提交">
+    Name : <input type="text" name="name" > <br>
+    Gender : <input type="text" name="gender" > <br>
+    Email : <input type="text" name="email" > <br>
+    City : <input type="text" name="address.city" > <br>
+    <input type="submit" value="提交">
   </form>
 
   <hr>

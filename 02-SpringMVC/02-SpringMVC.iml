@@ -28,5 +28,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="SpringMVC (2)" level="project" />
     <orderEntry type="library" name="SpringMVC (2)" level="project" />
+    <orderEntry type="library" scope="PROVIDED" name="Tomcat 7.0.90" level="application_server_libraries" />
   </component>
 </module>
