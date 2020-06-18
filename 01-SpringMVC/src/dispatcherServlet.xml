@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+    <!--SpringMVC的核心配置文件  和  Spring的配置文件是一样的-->
+    
+<!--
+    配置自动扫描的包
+    会自动扫描bask-package指定的包下被指定注解修饰的类，扫描到之后，会将其添加到IOC容器中
+-->
+    <context:component-scan base-package="com.ydkg.springmvc"></context:component-scan>
+
+    <!--
+        配置视图控制器
+        通过XML的方式将SpringMVC中现有的类添加到IOC容器。
+    -->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--
+            为prefix指定值 前缀
+        -->
+        <property name="prefix" value="/WEB-INF/" />
+        <!--
+            为 suffix 指定值 后缀
+        -->
+        <property name="suffix" value=".jsp" />
+    </bean>
+    
+</beans>
