@@ -11,6 +11,22 @@
     <title></title>
   </head>
   <body>
+
+  <form action="testPojo" method="post">
+      Name : <input type="text" name="name" > <br>
+      Gender : <input type="text" name="gender" > <br>
+      Email : <input type="text" name="email" > <br>
+      City : <input type="text" name="address.city" > <br>
+      <input type="submit" value="提交">
+  </form>
+
+  <hr>
+  <a href="/testCookieValue">Test Cookie Value</a>
+  <br>
+  <a href="/testRequestHeader" > Test Request Header</a>
+  <br>
+  <a href="/testRequestParam?age=18">Test Request Param</a>
+  <br>
   <%--
     想要返送 PUT 或 DELETE 请求：
       0、必须配置好 HiddentHttpMethodFilter 过滤器

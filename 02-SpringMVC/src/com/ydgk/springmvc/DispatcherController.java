@@ -1,9 +1,7 @@
 package com.ydgk.springmvc;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author kfstart
@@ -12,6 +10,41 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @Controller
 public class DispatcherController {
+
+    /*
+    可以使用普通的java类作为方法的入参。会将请求参数中和Java类属性名称相同的参数赋值为对应的属性
+     */
+    @RequestMapping("/testPojo")
+    public String testPojo(Person person){
+        System.out.println("person = " + person);
+        return "success";
+    }
+
+    @RequestMapping("/testCookieValue")
+    public String testCookieValue(@CookieValue("JSESSIONID") String jid){
+        System.out.println("jid = " + jid);
+        return "success";
+    }
+
+    @RequestMapping("/testRequestHeader")
+    public String testRequestHeader(@RequestHeader("Accept-Language") String lg,
+                                    @RequestHeader("Cookie") String cookie){
+        System.out.println("lg = " + lg);
+        System.out.println("cookie = " + cookie);
+        return "success";
+    }
+
+    /*
+    @RequestParam 注解
+        用于获取请求参数
+        属性：
+          required： 用于指定该参数是否是必须的，默认为 true 不传入便报 400 异常
+     */
+    @RequestMapping("/testRequestParam")
+    public String testRequestParam(@RequestParam(value = "age", required = false ,defaultValue = "0")int age){
+        System.out.println("age = " + age);
+        return "success";
+    }
 
     @RequestMapping(value = "/testRest", method = RequestMethod.DELETE)
     public String testDelete(){
