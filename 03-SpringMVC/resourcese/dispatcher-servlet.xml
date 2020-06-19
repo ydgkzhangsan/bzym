@@ -12,4 +12,22 @@
         <property name="prefix" value="/WEB-INF/pages/"></property>
         <property name="suffix" value=".jsp"></property>
     </bean>
+
+    <!--
+        配置 BeanNameViewResolver 通过Bean名称解析视图
+    -->
+    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver">
+        <!--
+            通过order属性指定视图解析器的优先级
+                值越小，优先级越高
+        -->
+        <property name="order" value="200"></property>
+    </bean>
+
+    <!--
+        如果使用国际化，需要配置国际化资源文件的Bean
+    -->
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="i8n"></property>
+    </bean>
 </beans>

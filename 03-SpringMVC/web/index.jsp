@@ -11,6 +11,8 @@
     <title></title>
   </head>
   <body>
+  <a href="/testBeanNameViewResolver">Test Bean Name View Resolver</a>
+  <br>
   <form action="/testModelAttribute" method="post">
     <input type="hidden" name="id" value="1" >
     <br>
