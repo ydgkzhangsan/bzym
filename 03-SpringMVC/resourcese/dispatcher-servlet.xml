@@ -2,7 +2,8 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <!--自动扫描的包-->
     <context:component-scan base-package="com.ydgk.springmvc"></context:component-scan>
@@ -30,4 +31,19 @@
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
         <property name="basename" value="i8n"></property>
     </bean>
+
+    <!--
+        处理静态资源的配置
+    -->
+    <mvc:default-servlet-handler></mvc:default-servlet-handler>
+    <!--
+        一般在开发过程中会配置一个标配
+    -->
+    <mvc:annotation-driven></mvc:annotation-driven>
+
+
+    <!--配置视图映射-->
+    <mvc:view-controller path="/toInput" view-name="input"></mvc:view-controller>
+
+
 </beans>

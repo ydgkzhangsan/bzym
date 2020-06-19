@@ -11,6 +11,9 @@ public class User {
     private String name;
     private String email;
     private Integer age;
+    private Integer gender;
+
+    private Department department;
 
     public User() {
     }
@@ -22,6 +25,30 @@ public class User {
         this.age = age;
     }
 
+    public User(Integer id, String name, String email, Integer age, Department department) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.age = age;
+        this.department = department;
+    }
+
+    public Integer getGender() {
+        return gender;
+    }
+
+    public void setGender(Integer gender) {
+        this.gender = gender;
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
+    }
+
     @Override
     public String toString() {
         return "User{" +
@@ -29,6 +56,7 @@ public class User {
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", age=" + age +
+                ", department=" + department +
                 '}';
     }
 

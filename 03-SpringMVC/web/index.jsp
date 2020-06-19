@@ -11,6 +11,12 @@
     <title></title>
   </head>
   <body>
+  <a href="/testSpringMVCTag">Test SpringMVC Tag</a>
+  <br>
+  <a href="/testRedirect">Test Redirect</a>
+  <br>
+  <a href="/toInput">To Input Page</a>
+  <br>
   <a href="/testBeanNameViewResolver">Test Bean Name View Resolver</a>
   <br>
   <form action="/testModelAttribute" method="post">

@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,6 +23,40 @@ import java.util.Map;
  */
 //@SessionAttributes(value = {"user"}, types = {String.class})
 public class DispatcherController {
+
+    @RequestMapping("/testCommit")
+    public String testCommit(User user){
+        System.out.println(user);
+        return "input";
+    }
+
+    @RequestMapping("/testSpringMVCTag")
+    public String testSpringMVCTag(Map map){
+        map.put("user",new User(1,"zhangsan","zhangsan@aliyun.com",20));
+
+        List<Department> depts = new ArrayList<>();
+        depts.add(new Department(1,"开发部"));
+        depts.add(new Department(2,"市场部"));
+        depts.add(new Department(3,"研发部"));
+        depts.add(new Department(4,"后勤部"));
+
+        map.put("depts", depts);
+        return "input";
+    }
+
+    @RequestMapping("/testRedirect")
+    public String testRedirect(){
+        return "redirect:/index.jsp";
+    }
+
+    /*
+    这个方法的目的就是将 /toInput 请求转发到 input.jsp 页面
+    可以使用<mvc:view-controller> 标签优化
+     */
+//    @RequestMapping("/toInput")
+//    public String toInput(){
+//        return "input";
+//    }
 
     @RequestMapping("/testBeanNameViewResolver")
     public String testBeanNameViewResolver(){
