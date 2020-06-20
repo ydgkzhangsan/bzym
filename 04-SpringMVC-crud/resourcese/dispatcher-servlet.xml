@@ -17,7 +17,7 @@
     <!--处理静态资源-->
     <mvc:default-servlet-handler/>
 
-    <!--配置annotation-driven-->
+    <!--配置annotation-driven  -->
     <mvc:annotation-driven/>
 
 </beans>
