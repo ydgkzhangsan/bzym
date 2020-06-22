@@ -2,25 +2,33 @@ package com.ydgk.springmvc.entities;
 
 import java.util.Date;
 
+import org.hibernate.validator.constraints.Range;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Past;
 
 public class Employee {
 
 	private Integer id;
 
+	@NotEmpty // 校验是否为空串或null      NotNull
 	private String lastName;
 
-
+	@Email
 	private String email;
 	//1 male, 0 female
 	private Integer gender;
 	
 	private Department department;
 
+	@Past // 校验是否是一个过去的时间
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birth;
 
+	@Range(min = 3000, max = 50000) // 校验数值是否在指定范围内
 	@NumberFormat(pattern = "##,###")
 	private Float salary;
 

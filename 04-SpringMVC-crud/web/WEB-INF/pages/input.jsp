@@ -40,16 +40,19 @@
         取出作为表单回显的参考，如果没有获取到，则会报错。
     --%>
     <form:form action="/emp" method="post" modelAttribute="employee">
+
+        <%--<form:errors path="*"></form:errors>--%>
+
         <%--如果是修改 1、保存员工的id  2、需要发送PUT请求--%>
         <c:if test="${!empty employee.id}">
             <form:hidden path="id" />
             <input type="hidden" name="_method" value="PUT" />
         </c:if>
         <c:if test="${empty employee.id}">
-            LastName: <form:input path="lastName" />
+            LastName: <form:input path="lastName" /> <form:errors path="lastName"></form:errors>
         </c:if>
         <br>
-        Email: <form:input path="email" />
+        Email: <form:input path="email" /><form:errors path="email"></form:errors>
         <br>
         <%
             HashMap map = new HashMap();
@@ -62,10 +65,10 @@
         Department: <form:select path="department.id" items="${depts}"
                                  itemValue="id" itemLabel="departmentName"></form:select>
         <br>
-        Birth: <form:input path="birth"></form:input>
+        Birth: <form:input path="birth"></form:input> <form:errors path="birth"></form:errors>
         <br>
         <%-- 10,000 --%>
-        Salary: <form:input path="salary" />
+        Salary: <form:input path="salary" /> <form:errors path="salary"></form:errors>
         <br>
         <input type="submit" value="Submit">
     </form:form>

@@ -30,5 +30,7 @@
     <orderEntry type="library" name="SpringMVC (2)" level="project" />
     <orderEntry type="library" name="jstl" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 7.0.90" level="application_server_libraries" />
+    <orderEntry type="library" name="hibernate-validata" level="project" />
+    <orderEntry type="library" name="validata" level="project" />
   </component>
 </module>

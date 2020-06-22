@@ -5,9 +5,17 @@ import com.ydgk.springmvc.dao.EmployeeDao;
 import com.ydgk.springmvc.entities.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
+import java.io.IOException;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -40,8 +48,30 @@ public class EmployeeController {
         return "input";
     }
 
+    /*
+    获取校验结果：
+        在需要校验的入参后加入一个BindingResult或Error类型的参数，获取校验结果。
+        注意： 该参数必须和校验对象挨着。
+     */
     @RequestMapping(value = "/emp", method = RequestMethod.POST)
-    public String save(Employee employee){
+    public String save(@Valid Employee employee, BindingResult bindingResult,Map map) throws ServletException, IOException {
+
+        /*
+         BindingResult 对象的方法：
+            hasErrors() 是否校验或转换出错
+         */
+        if(bindingResult.hasErrors()){
+            List<FieldError> fieldErrors = bindingResult.getFieldErrors();
+            for(FieldError error : fieldErrors){
+                System.out.println("Employee的<"+error.getField()+">属性出现错误。" +
+                        "错误消息为："+ error.getDefaultMessage());
+            }
+            // 获取所有的部门信息，存入模型中
+            map.put("depts",departmentDao.getDepartments());
+            //request.getRequestDispatcher("/WEB-INF/pages/input.jsp").forward(request,response);
+            return "input";
+        }
+
         System.out.println(employee);
         // 保存员工信息
         employeeDao.save(employee);

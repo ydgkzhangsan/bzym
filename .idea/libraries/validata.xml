@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="validata">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/04-SpringMVC-crud/web/WEB-INF/lib/classmate-1.3.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/04-SpringMVC-crud/web/WEB-INF/lib/hibernate-validator-6.0.17.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/04-SpringMVC-crud/web/WEB-INF/lib/hibernate-validator-annotation-processor-6.0.17.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/04-SpringMVC-crud/web/WEB-INF/lib/hibernate-validator-cdi-6.0.17.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/04-SpringMVC-crud/web/WEB-INF/lib/jboss-logging-3.3.2.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/04-SpringMVC-crud/web/WEB-INF/lib/validation-api-2.0.1.Final.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
