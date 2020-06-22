@@ -21,6 +21,17 @@
     <c:if test="${!empty employee.id}">
         <h4>修改页面</h4>
     </c:if>
+
+    <!--
+        编写一个将字符串转换成 Employee 对象的装换器
+            字符串必须满足如下规则： FF-ff@aliyun.com-0-1004
+     -->
+    <form action="/emp" method="post">
+        <input type="text" name="employee" >
+        <input type="submit" value="Submit">
+    </form>
+
+
     <%--
         SpringMVC 的表单标签默认是需要做回显的，如果不做回显则会报错。
         SpringMVC 的form表单会自动的从模型中获取对应的模型数据，可以通过指定modelAttribute属性
@@ -50,6 +61,11 @@
         <br>
         Department: <form:select path="department.id" items="${depts}"
                                  itemValue="id" itemLabel="departmentName"></form:select>
+        <br>
+        Birth: <form:input path="birth"></form:input>
+        <br>
+        <%-- 10,000 --%>
+        Salary: <form:input path="salary" />
         <br>
         <input type="submit" value="Submit">
     </form:form>

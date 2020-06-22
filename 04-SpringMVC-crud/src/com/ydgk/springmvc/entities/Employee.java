@@ -17,9 +17,11 @@ public class Employee {
 	private Integer gender;
 	
 	private Department department;
-	
+
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date birth;
-	
+
+	@NumberFormat(pattern = "##,###")
 	private Float salary;
 
 	public Integer getId() {

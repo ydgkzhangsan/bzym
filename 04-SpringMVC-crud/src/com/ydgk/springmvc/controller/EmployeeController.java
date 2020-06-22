@@ -5,6 +5,7 @@ import com.ydgk.springmvc.dao.EmployeeDao;
 import com.ydgk.springmvc.entities.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
@@ -41,6 +42,7 @@ public class EmployeeController {
 
     @RequestMapping(value = "/emp", method = RequestMethod.POST)
     public String save(Employee employee){
+        System.out.println(employee);
         // 保存员工信息
         employeeDao.save(employee);
         // 将请求重定向到list页面
@@ -74,8 +76,20 @@ public class EmployeeController {
 
     @RequestMapping(value = "/emp" , method = RequestMethod.PUT)
     public String edit(Employee employee){
+
         employeeDao.save(employee);
         return "redirect:/emps";
     }
+
+    /*
+    因为数据的绑定，数据的校验及格式化都是通过webDataBinder对象进行控制的。
+    而 @InitBinder 注解修饰方法可以用于控制 webDataBinder 的工作流程
+       比如： 控制那些参数不被绑定到方法的入参
+     */
+//    @InitBinder
+//    public void testInitBinder(WebDataBinder webDataBinder){
+//        // 表示不去绑定lastName属性
+//        webDataBinder.setDisallowedFields("lastName");
+//    }
 
 }

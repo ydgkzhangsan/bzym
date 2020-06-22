@@ -18,6 +18,23 @@
     <mvc:default-servlet-handler/>
 
     <!--配置annotation-driven  -->
-    <mvc:annotation-driven/>
+    <!--<mvc:annotation-driven />-->
+
+
+    <!--
+        3、需要将配置好的ConversionService配置到annotation-driven节点的conversion-service属性中
+    -->
+    <mvc:annotation-driven conversion-service="conversionService"/>
+
+
+    <!--
+        2、 将自定义的类型转换器注册到 ConversionServiceFactoryBean 中
+            如果需要使用SpringMVC提供的格式化器，可以注册到 FormattingConversionServiceFactoryBean 中
+    -->
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="converters">
+            <ref bean="stringToEmployeeConvertor"></ref>
+        </property>
+    </bean>
 
 </beans>
