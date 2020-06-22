@@ -4,17 +4,24 @@ import com.ydgk.springmvc.dao.DepartmentDao;
 import com.ydgk.springmvc.dao.EmployeeDao;
 import com.ydgk.springmvc.entities.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.validation.Valid;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.Collection;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -31,6 +38,47 @@ public class EmployeeController {
 
     @Autowired
     private DepartmentDao departmentDao;
+
+    /*
+    HttpMessageConverter 使用之二：
+        使用 HttpEntity<T> / ResponseEntity<T> 作为方法的入参 或 返回值
+
+        实现一个下载的效果。
+     */
+    @RequestMapping("/testResponseEntity")
+    public ResponseEntity<byte[]> testResponseEntity(HttpServletRequest request) throws IOException {
+        ServletContext context = request.getServletContext();
+        InputStream is = context.getResourceAsStream("/file/test.txt");
+        byte[] bytes = new byte[is.available()];
+        is.read(bytes);
+
+        // 设置响应头
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Disposition","attachment;filename=abc.txt");
+
+        ResponseEntity<byte[]> responseEntity = new ResponseEntity<>(bytes, headers, HttpStatus.OK);
+        return responseEntity;
+    }
+    /*
+    HttpMessageConverter 使用之一：
+        @RequestBody
+        @ResponseBody
+      注意：这两个注解并不需要一起出现
+     */
+    @ResponseBody
+    @RequestMapping("/testHttpMessageConverter")
+    public String testHttpMessageConverter(@RequestBody String body){
+        System.out.println(body);
+        return "hello " + new Date();
+    }
+
+    // 返回json
+    @ResponseBody
+    @RequestMapping("/testJson")
+    public Collection<Employee> testJson(){
+        return employeeDao.getAll();
+    }
+
 
     @RequestMapping(value = "/emps", method = RequestMethod.GET)
     public String list(Map map){

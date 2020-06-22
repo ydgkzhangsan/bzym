@@ -32,5 +32,6 @@
     <orderEntry type="library" scope="PROVIDED" name="Tomcat 7.0.90" level="application_server_libraries" />
     <orderEntry type="library" name="hibernate-validata" level="project" />
     <orderEntry type="library" name="validata" level="project" />
+    <orderEntry type="library" name="jackson-annotations-2.9.0" level="project" />
   </component>
 </module>
