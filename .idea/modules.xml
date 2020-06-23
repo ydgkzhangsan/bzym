@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/02-SpringMVC/02-SpringMVC.iml" filepath="$PROJECT_DIR$/02-SpringMVC/02-SpringMVC.iml" />
       <module fileurl="file://$PROJECT_DIR$/03-SpringMVC/03-SpringMVC.iml" filepath="$PROJECT_DIR$/03-SpringMVC/03-SpringMVC.iml" />
       <module fileurl="file://$PROJECT_DIR$/04-SpringMVC-crud/04-SpringMVC-crud.iml" filepath="$PROJECT_DIR$/04-SpringMVC-crud/04-SpringMVC-crud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/05-SpringMVC/05-SpringMVC.iml" filepath="$PROJECT_DIR$/05-SpringMVC/05-SpringMVC.iml" />
       <module fileurl="file://$PROJECT_DIR$/SpringMVC-01.iml" filepath="$PROJECT_DIR$/SpringMVC-01.iml" />
     </modules>
   </component>
