@@ -34,6 +34,27 @@
         <!--配置第一个拦截器-->
         <!--<bean class="com.ydgk.springmvc.interceptors.MyFirstInterceptor"></bean>-->
         <ref bean="myFirstInterceptor"/>
+        <!--配置第二个拦截器-->
+        <!--<ref bean="mySecondInterceptor" />-->
+
+        <!--
+         可以使用mvc:interceptor子节点更加细粒度的配置拦截器。
+         -->
+        <mvc:interceptor>
+            <!--
+            指定哪些请求交个拦截器进行拦截
+                可以使用通配符
+                    * 表示任意多个字符的一层路径  /*.js
+
+                /** 表示匹配任意多层路径
+            -->
+            <mvc:mapping path="/**"/>
+            <!-- 表示指定哪些路径不被拦截 -->
+            <mvc:exclude-mapping path="/test" />
+            <mvc:exclude-mapping path="/abc" />
+            <!--指定拦截器-->
+            <ref bean="mySecondInterceptor" />
+        </mvc:interceptor>
 
         <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"></bean>
     </mvc:interceptors>
@@ -44,5 +65,18 @@
         <property name="defaultEncoding" value="UTF-8" />
         <!--配置文件上传的最大大小-->
         <property name="maxUploadSize" value="#{5 * 1024 * 1024}" />
+    </bean>
+
+    <!--配置简单异常映射-->
+    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <props>
+                <!--
+                key 异常的全类名
+                    节点的值即视图名
+                -->
+                <prop key="java.lang.NullPointerException">error</prop>
+            </props>
+        </property>
     </bean>
 </beans>

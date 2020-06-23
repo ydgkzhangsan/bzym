@@ -11,6 +11,15 @@
     <title>$Title$</title>
   </head>
   <body>
+
+  <a href="/testSimpleMappingExceptionResolver">Test SimpleMappingExceptionResolver</a>
+  <br>
+  <a href="/testDefaultHandlerExceptionResolver">Test DefaultHandlerExceptionResolver</a>
+  <br>
+  <a href="/testResponseStatusExceptionResolver/5">Test ExceptionHandlerExceptionResolver</a>
+  <br>
+  <a href="/testExceptionHandlerExceptionResolver/10">Test ExceptionHandlerExceptionResolver</a>
+    <br>
     <%--
       国际化：
         1、在页面中根据浏览器的语言设置情况，将文本（不是内容）、数值、时间根据语言情况进行显示。
